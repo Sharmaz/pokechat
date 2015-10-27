@@ -19,6 +19,9 @@
 		}
 		
 		React.render(<HelloWorldComponent name="Squirtle" />, document.getElementById('container'));
+		setTimeout(() => {
+			React.render(<HelloWorldComponent name="watortle" />, document.getElementById('container'));
+		}, 3000)
 	</script>
 </body>
 </html>
