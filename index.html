@@ -9,19 +9,25 @@
 	<script src="http://fb.me/react-0.13.3.js"></script>
 	<script src="http://fb.me/JSXTransformer-0.13.3.js"></script>
 	<script type="text/jsx;harmony=true">
-		class HelloWorldComponent extends React.Component {
+		var pokemons = [
+			{number: 1, name: 'Bulbasaur'},
+			{number: 2, name: 'Ivysaur'},
+			{number: 3, name: 'Venusaur'}
+			];
 
+		class PokeRow extends React.Component {
 			render() {
-				return <h1>{this.props.name} evoluciona en nivel {this.props.level}</h1>
+				var url = `http://veekun.com/dex/media/pokemon/main-sprites/x-y/${this.props.number}.png`
+
+				return <div> <img src={url} /> {this.props.name} </div>
 			}
 		}
-		
-		HelloWorldComponent.propTypes = {
-			name: React.PropTypes.string,
-			level: React.PropTypes.number
-		}
 
-			React.render(<HelloWorldComponent name="pikachu" level={25} />, document.getElementById('container'))
+		var pokemon = pokemons[0];
+
+		React.render(
+			<PokeRow name={pokemon.name} number={pokemon.number} />, 
+			document.getElementById('container'));
 	</script>
 </body>
 </html>
