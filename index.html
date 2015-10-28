@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Curso - React.js </title>
+	<link rel="stylesheet" type="text/css" href="stilos.css">
 </head>
 <body>
 	<section id="container"></section>
@@ -15,18 +16,37 @@
 			{number: 3, name: 'Venusaur'}
 			];
 
-		class PokeRow extends React.Component {
+		class PokeAvatar extends React.Component {
 			render() {
-				var url = `http://veekun.com/dex/media/pokemon/main-sprites/x-y/${this.props.number}.png`
+				var url = `http://veekun.com/dex/media/pokemon/main-sprites/x-y/${this.props.number}.png`;
 
-				return <div> <img src={url} /> {this.props.name} </div>
+				return <img src={url} className="avatar"/> 
 			}
 		}
 
-		var pokemon = pokemons[0];
+		class PokeRow extends React.Component {
+			render() {
+				
+
+				return <li className="pokerow"><PokeAvatar number={this.props.number}/>{this.props.name}</li>
+			}
+		}
+
+		class PokeTable extends React.Component {
+			render() {
+				return <ul className="poketable">
+				{
+					this.props.pokemons.map((pokemon) => {
+						return <PokeRow key={pokemon.number} name={pokemon.name} number={pokemon.number}/>
+					})
+				}
+				</ul>
+			}
+		}
+
 
 		React.render(
-			<PokeRow name={pokemon.name} number={pokemon.number} />, 
+			<PokeTable pokemons={pokemons} />, 
 			document.getElementById('container'));
 	</script>
 </body>
