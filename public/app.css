@@ -86,3 +86,22 @@ table {
 	height: 100%;
 	/*overflow: scroll;*/
 }
+.message-animation-enter
+{
+	opacity: 0;
+	-webkit-transition: opacity .5s ease-in;
+	   -moz-transition: opacity .5s ease-in;
+	    -ms-transition: opacity .5s ease-in;
+	     -o-transition: opacity .5s ease-in;
+	        transition: opacity .5s ease-in;
+}
+
+.message-animation-enter.message-animation-enter-active
+{
+	opacity: 1;
+}
+
+.message-animation-leave 
+{
+	
+}
