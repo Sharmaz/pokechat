@@ -6,12 +6,19 @@ import React from 'react';
 import PokeTable from './PokeTable';
 import PokeChat from './PokeChat';
 import uid from 'uid';
+import $ from 'jquery';
 
 export default class PokeApp extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = { messages: [] };
+		this.state = { messages: [], pokemons: [] };
 		this.onGrowl = this.onGrowl.bind(this);
+	}
+
+	componentWillMount() {
+		$.get('/pokemons', (pokemons) => {
+			this.setState({ pokemons:pokemons})
+		})
 	}
 
 	onGrowl(name) {
@@ -23,15 +30,14 @@ export default class PokeApp extends React.Component {
 	}
 
 	render() {
-		let pokemons = [
-			{number: 1, name: 'Bulbasaur'},
-			{number: 2, name: 'Ivysaur'},
-			{number: 3, name: 'Venusaur'}
-		];
-
-		return <div className="pokeapp">
-				<PokeTable pokemons={pokemons} onGrowl={ this.onGrowl } />
+		if (this.state.pokemons.length) {
+			return <div className="pokeapp">
+				<PokeTable pokemons={this.state.pokemons} onGrowl={ this.onGrowl } />
 				<PokeChat messages={this.state.messages} />
 			</div>
+		} else {
+			return <p>Cargando...</p>
+		}
+		
 	}
 }
