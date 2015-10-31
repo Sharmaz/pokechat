@@ -2,10 +2,11 @@
  *  Module Dependencies
  */
 
-import React from 'react';
-import PokeApp from './components/PokeApp';
+var React = require('react');
+var ReactDOM = require('react-dom');
+var PokeApp = require('./components/PokeApp');
 
-React.render(
+ReactDOM.render(
 	<PokeApp/>, 
 	document.getElementById('container')
 );

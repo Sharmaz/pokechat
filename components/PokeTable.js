@@ -2,8 +2,8 @@
  *  Module Dependencies
  */
 
-import React from 'react';
-import PokeRow from './PokeRow';
+var React = require('react');
+var PokeRow = require('./PokeRow');
 
 export default class PokeTable extends React.Component {
 

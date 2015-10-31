@@ -2,12 +2,13 @@
  * Module dependencies
  */
 
-import React from 'react';
-import PokeTable from './PokeTable';
-import PokeChat from './PokeChat';
-import uid from 'uid';
-import $ from 'jquery';
-import io from 'socket.io-client';
+var React = require('react');
+var ReactDOM = require('react-dom')
+var PokeTable = require('./PokeTable');
+var PokeChat = require('./PokeChat');
+var uid = require('uid');
+var $ = require('jquery');
+var io = require('socket.io-client');
 
 export default class PokeApp extends React.Component {
   constructor(props) {

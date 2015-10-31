@@ -2,8 +2,8 @@
  *  Module Dependencies
  */
 
-import React from 'react/addons';
-import PokeMessage from './PokeMessage';
+var React = require('react/addons');
+var PokeMessage = require('./PokeMessage');
 
 const { CSSTransitionGroup } = React.addons;
 

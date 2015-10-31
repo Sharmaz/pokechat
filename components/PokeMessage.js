@@ -2,7 +2,7 @@
  *  Module Dependencies
  */
 
-import React from 'react';
+var React = require('react');
 
 export default class PokeMessage extends React.Component {
 	render() {

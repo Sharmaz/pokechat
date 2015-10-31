@@ -2,8 +2,8 @@
  *  Module Dependencies
  */
 
-import React from 'react';
-import PokeAvatar from './PokeAvatar';
+var React = require('react');
+var PokeAvatar = require('./PokeAvatar');
 
 export default class PokeRow extends React.Component {
 	onClick(ev) {
