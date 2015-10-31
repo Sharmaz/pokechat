@@ -18,7 +18,7 @@ app.get('/pokemons', (req, res) => {
 	dbapi.pokemons.find((pokemons) => {
 		res.json(pokemons);
 	})
-})
+});
 
 app.get('/', (req, res) => {
 	res.sendFile(__dirname + '/index.html');
@@ -26,12 +26,12 @@ app.get('/', (req, res) => {
 
 var server = http.createServer(app).listen(port, () => {
 	console.log(`El servidor esta escuchando en el puerto ${port}`)
-})
+});
 
 const io = engine.listen(server);
 
 io.on('connection', (socket) => {
-	socket.on('messsage', (msg) => {
-		io.emit('messsage', msg);
+	socket.on('message', (msg) => {
+		io.emit('message', msg);
 	})
 })
